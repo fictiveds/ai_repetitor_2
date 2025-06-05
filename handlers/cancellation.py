@@ -30,9 +30,9 @@ async def cmd_cancel_lesson(message: Message, state: FSMContext):
                    "(например: Иван, +79001234567), чтобы я мог найти ваши записи.")
     await message.answer(prompt_text, reply_markup=ReplyKeyboardRemove())
     await update_fsm_and_file_history(user_id, state, "assistant", prompt_text) # ИСТОРИЯ
-    await state.set_state(UserInteraction.awaiting_cancel_details)
+    await state.set_state(UserInteraction.awaiting_contact_info)
 
-@router.message(UserInteraction.awaiting_cancel_details, F.text)
+@router.message(UserInteraction.awaiting_contact_info, F.text)
 async def process_cancellation_details(message: Message, state: FSMContext):
     user_id = message.from_user.id # type: ignore
     contact_info = message.text
