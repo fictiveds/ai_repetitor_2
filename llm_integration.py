@@ -26,7 +26,7 @@ def get_llm_response(
     user_id: int, # Для возможного логирования или специфичных настроек пользователя в будущем
     dialog_history: List[Dict[str, Any]],
     user_input: str, # Последнее сообщение пользователя
-    model: str = "openai/gpt-3.5-turbo", # Модель по умолчанию, можно изменить
+    model: str = "google/gemini-2.5-flash-preview-05-20", # Модель по умолчанию, можно изменить
     temperature: float = 0.7,
     max_tokens: int = 1000,
     # Дополнительные параметры, специфичные для OpenRouter или модели, могут быть добавлены сюда
